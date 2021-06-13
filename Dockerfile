@@ -4,7 +4,8 @@ RUN mkdir /tomcat
 ADD https://downloads.apache.org/tomcat/tomcat-8/v8.5.66/bin/apache-tomcat-8.5.66.zip /tomcat
 WORKDIR /tomcat
 RUN unzip apache-tomcat-8.5.66.zip
-COPY /vagrant/mytemp/api.war tomcat/apache-tomcat-8.5.66/webapps
+WORKDIR /vagrant/mytemp
+COPY api.war tomcat/apache-tomcat-8.5.66/webapps
 WORKDIR /tomcat/apache-tomcat-8.5.66/bin
 RUN chmod +x *.sh
 RUN sh startup.sh
